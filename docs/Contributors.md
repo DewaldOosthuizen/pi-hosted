@@ -86,9 +86,32 @@ As example we'll use [dashy.json](https://github.com/pi-hosted/pi-hosted/blob/ma
 
 A good practise if you seem to not get it configured right, is to look at other simalair containers that are contributed in the same folder. Or read the official documentation [here](https://docs.portainer.io/advanced/app-templates/format).
 
-### What do i edit in the json file?
+## Local validation reference
+
+From the repository root:
+
+```bash
+make help
+make lint-json
+make lint-yaml
+make ci
+```
+
+- `make lint-json` validates all JSON files in the repository.
+- `make lint-yaml` validates all YAML files in the repository.
+- `make ci` runs the local equivalent of the current lint CI workflow plus local YAML validation.
+
+### What do I edit in the json file?
 
 Before starting, always make sure GitHub Actions are activated on your fork! Go to Actions in your fork and make sure it's enabled.
+
+Before opening a PR, run the local lint target from the repository root:
+
+```bash
+make ci
+```
+
+This currently mirrors the repo's lint workflow by validating all JSON files locally. It also validates YAML syntax for contributor-maintained stack and workflow files. Use it after changing any files under `template/apps/`, `template/`, `stack/`, `.github/workflows/`, `build/`, or other JSON/YAML-backed assets.
 
 You want to edit the Categories part to include some tags that identifies the container.
 
