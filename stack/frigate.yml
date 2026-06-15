@@ -5,7 +5,7 @@ services:
     container_name: frigate
     image: ghcr.io/blakeblackshear/frigate:stable
     privileged: true
-    shm_size: "2gb"
+    shm_size: ${FRIGATE_SHM_SIZE}
     environment:
       TZ: ${TZ}
     volumes:

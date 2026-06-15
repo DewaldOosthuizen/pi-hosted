@@ -30,6 +30,11 @@
 			"default": "2",
 			"label": "Container CPU Limit",
 			"name": "FRIGATE_CPUS"
+		},
+		{
+			"default": "2gb",
+			"label": "Shared Memory Size",
+			"name": "FRIGATE_SHM_SIZE"
 		}
 	],
 	"logo": "https://frigate.video/images/logo.svg",

@@ -54,6 +54,7 @@ The template exposes the following variables:
 - `FRIGATE_WEBRTC_PORT` - Host UDP port mapped to WebRTC traffic (`8555/udp` in the container)
 - `TZ` - Timezone used by the container
 - `FRIGATE_CPUS` - CPU limit for the container
+- `FRIGATE_SHM_SIZE` - Shared memory size passed to Docker, for example `512mb`, `1gb`, or `2gb`
 
 Default mappings are:
 
@@ -72,6 +73,7 @@ Review and adjust the variables as needed:
 - **FRIGATE_WEBRTC_PORT:** UDP port for WebRTC
 - **TZ:** Your local timezone, for example `Africa/Johannesburg`
 - **FRIGATE_CPUS:** CPU quota to assign to the container
+- **FRIGATE_SHM_SIZE:** Shared memory size for Frigate, for example `2gb`
 
 Then click `Deploy the stack`.
 
@@ -101,6 +103,8 @@ If the stack starts but Frigate does not become healthy, the first thing to chec
 ```
 
 Invalid YAML or an incorrect camera stream URL is the most common startup problem.
+
+If Frigate reports ffmpeg crashes, review `FRIGATE_SHM_SIZE` as well. Larger or busier camera setups may need more shared memory than the default.
 
 ## After Installation
 
