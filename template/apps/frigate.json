@@ -1,0 +1,54 @@
+{
+	"categories": [
+		"Other",
+		"Security",
+		"Video"
+	],
+	"description": "Frigate is an open source network video recorder with real-time local object detection for IP cameras.",
+	"env": [
+		{
+			"default": "90",
+			"label": "Frigate Web Port",
+			"name": "FRIGATE_WEB_PORT"
+		},
+		{
+			"default": "91",
+			"label": "RTSP Port",
+			"name": "FRIGATE_RTSP_PORT"
+		},
+		{
+			"default": "92",
+			"label": "WebRTC UDP Port",
+			"name": "FRIGATE_WEBRTC_PORT"
+		},
+		{
+			"default": "UTC",
+			"label": "TZ",
+			"name": "TZ"
+		},
+		{
+			"default": "2",
+			"label": "Container CPU Limit",
+			"name": "FRIGATE_CPUS"
+		}
+	],
+	"logo": "https://frigate.video/images/logo.svg",
+	"name": "frigate",
+	"officialDoc": "https://docs.frigate.video/",
+	"piHostedDoc": "frigate.md",
+	"platform": "linux",
+	"ports": [
+		"90:5000/tcp",
+		"91:8554/tcp",
+		"92:8555/udp"
+	],
+	"repository": {
+		"stackfile_arm64": "stack/frigate.yml",
+		"stackfile_amd64": "stack/frigate.yml",
+		"url": "https://github.com/pi-hosted/pi-hosted"
+	},
+	"restart_policy": "unless-stopped",
+	"title": "Frigate",
+	"type": 3,
+	"webpage": "https://frigate.video/"
+}
