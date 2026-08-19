@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  frigate:
+    container_name: frigate
+    image: ghcr.io/blakeblackshear/frigate:stable
+    privileged: true
+    shm_size: ${FRIGATE_SHM_SIZE}
+    environment:
+      TZ: ${TZ}
+    volumes:
+      - /portainer/Files/AppData/Config/Frigate/config:/config
+      - /portainer/Files/AppData/Config/Frigate/Media:/media/frigate
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - "${FRIGATE_WEB_PORT}:5000"
+      - "${FRIGATE_RTSP_PORT}:8554"
+      - "${FRIGATE_WEBRTC_PORT}:8555/udp"
+    cpus: ${FRIGATE_CPUS}
+    restart: unless-stopped
